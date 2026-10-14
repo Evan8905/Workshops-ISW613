@@ -1,9 +1,7 @@
 <?php
-declare(strict_types=1);
-require_once __DIR__ . '/utils/auth.php';
-start_app_session();
+session_start();
 
-if (is_logged_in()) {
+if (isset($_SESSION['user_id'])) {
     header('Location: pages/dashboard.php');
     exit;
 }
@@ -31,7 +29,6 @@ require_once __DIR__ . '/pages/common/header.php';
             <div class="alert alert-success">Cuenta creada correctamente. Ya puede iniciar sesión.</div>
           <?php endif; ?>
           <form action="actions/login.php" method="POST">
-            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
             <div class="form-group">
               <label for="username">Usuario</label>
               <input type="text" class="form-control" id="username" name="username" maxlength="50" required autofocus>

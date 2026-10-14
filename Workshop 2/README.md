@@ -7,7 +7,7 @@ Aplicación PHP para registrar usuarios, asociarlos a una provincia, iniciar ses
 ```
 actions/  Procesamiento de inicio de sesión, registro, actualización y cierre de sesión
 pages/    Pantallas de registro, inicio, perfil y componentes compartidos
-utils/    Conexión a MySQL y utilidades de autenticación/sesión
+utils/    Conexión a MySQL
 ```
 
 ## Instalación

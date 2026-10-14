@@ -1,8 +1,9 @@
 <?php
-declare(strict_types=1);
-require_once __DIR__ . '/../utils/auth.php';
-start_app_session();
-require_login('../index.php');
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../index.php');
+    exit;
+}
 $pageTitle = 'Inicio | Workshop 2';
 require_once __DIR__ . '/common/header.php';
 ?>
@@ -13,7 +14,6 @@ require_once __DIR__ . '/common/header.php';
       <p class="text-muted">Su sesión está activa.</p>
       <a class="btn btn-primary mr-2" href="profile.php">Ver y actualizar mi perfil</a>
       <form action="../actions/logout.php" method="POST" class="d-inline">
-        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" class="btn btn-outline-danger">Cerrar sesión</button>
       </form>
     </div></div>

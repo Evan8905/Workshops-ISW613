@@ -1,17 +1,15 @@
 <?php
-declare(strict_types=1);
-require_once __DIR__ . '/../utils/auth.php';
 require_once __DIR__ . '/../utils/database.php';
-start_app_session();
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !verify_csrf_token($_POST['csrf_token'] ?? null)) {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ../index.php?error=invalid_input');
     exit;
 }
 
-$username = trim((string) ($_POST['username'] ?? ''));
-$password = (string) ($_POST['password'] ?? '');
-if ($username === '' || strlen($username) > 50 || $password === '') {
+$username = trim($_POST['username'] ?? '');
+$password = $_POST['password'] ?? '';
+if ($username === '' || $password === '') {
     header('Location: ../index.php?error=invalid_input');
     exit;
 }
@@ -25,7 +23,6 @@ if (!$user || !password_verify($password, $user['password_hash'])) {
     exit;
 }
 
-session_regenerate_id(true);
 $_SESSION['user_id'] = (int) $user['id'];
 $_SESSION['username'] = $user['username'];
 header('Location: ../pages/dashboard.php');

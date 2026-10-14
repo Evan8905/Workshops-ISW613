@@ -1,10 +1,8 @@
 <?php
-declare(strict_types=1);
-require_once __DIR__ . '/../utils/auth.php';
 require_once __DIR__ . '/../utils/database.php';
-start_app_session();
+session_start();
 
-if (is_logged_in()) {
+if (isset($_SESSION['user_id'])) {
     header('Location: dashboard.php');
     exit;
 }
@@ -13,9 +11,7 @@ $statement = $conn->query('SELECT id, name FROM provinces ORDER BY name');
 $provinces = $statement->fetchAll();
 $errors = [
     'invalid_input' => 'Revise los datos ingresados.',
-    'username_exists' => 'El nombre de usuario ya está en uso.',
-    'email_exists' => 'El correo electrónico ya está registrado.',
-    'registration_error' => 'No fue posible registrar el usuario. Intente de nuevo.',
+    'user_exists' => 'El usuario o correo electrónico ya está registrado.',
 ];
 $message = $errors[$_GET['error'] ?? ''] ?? null;
 $pageTitle = 'Registro de usuario | Workshop 2';
@@ -31,7 +27,6 @@ require_once __DIR__ . '/common/header.php';
             <div class="alert alert-danger"><?= htmlspecialchars($message, ENT_QUOTES, 'UTF-8') ?></div>
           <?php endif; ?>
           <form action="../actions/register.php" method="POST">
-            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars(csrf_token(), ENT_QUOTES, 'UTF-8') ?>">
             <div class="form-row">
               <div class="form-group col-md-6"><label for="full_name">Nombre completo</label><input type="text" class="form-control" id="full_name" name="full_name" maxlength="100" required></div>
               <div class="form-group col-md-6"><label for="username">Usuario</label><input type="text" class="form-control" id="username" name="username" maxlength="50" required></div>
