@@ -1,8 +1,9 @@
 <?php
 
-$dsn = 'mysql:host=127.0.0.1;dbname=iswapp;charset=utf8mb4';
+$dsn = 'mysql:host=127.0.0.1;dbname=workshop3;charset=utf8mb4';
 $dbUser = 'root';
-$dbPassword = 'root';
+// En esta instalación de XAMPP el usuario root no tiene contraseña.
+$dbPassword = '';
 
 try {
     $conn = new PDO($dsn, $dbUser, $dbPassword, [
