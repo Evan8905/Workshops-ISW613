@@ -19,6 +19,9 @@
       <a href="/pages/profile.php" class="nav-link">Profile</a>
     </li>
     <li class="nav-item">
+      <a href="/courses.php" class="nav-link">Cursos</a>
+    </li>
+    <li class="nav-item">
       <a href="/users.php" class="nav-link active">Users</a>
     </li>
     <li class="nav-item">

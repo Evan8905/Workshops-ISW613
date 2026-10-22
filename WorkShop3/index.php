@@ -5,7 +5,6 @@ require_once __DIR__ . '/pages/common/header.php';
 // Pre-fill the username if the user previously checked "Remember me"
 $rememberedUsername = $_COOKIE['remembered_username'] ?? '';
 ?>
-<body>
   <div class="container mt-5">
     <h1 class="text-center">Welcome to My Website</h1>
     <p class="text-center">This is a simple homepage created with PHP and Bootstrap.</p>
@@ -42,4 +41,3 @@ $rememberedUsername = $_COOKIE['remembered_username'] ?? '';
     </div>
   </div>
   <?php require_once __DIR__ . '/pages/common/footer.php'; ?>
-
