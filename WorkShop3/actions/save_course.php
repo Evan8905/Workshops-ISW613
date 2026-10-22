@@ -7,7 +7,7 @@ require_once __DIR__ . '/../utils/courses.php';
 
 // Esta acción solo recibe la información que manda el formulario.
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /courses.php');
+    header('Location: /workshop3/courses.php');
     exit;
 }
 
@@ -34,7 +34,7 @@ if (
     || (int) $credits < 1
     || (isset($_POST['id']) && (!is_string($id) || !ctype_digit($id) || (int) $id < 1))
 ) {
-    header('Location: /courses.php?error=invalid_input');
+    header('Location: /workshop3/courses.php?error=invalid_input');
     exit;
 }
 
@@ -50,7 +50,7 @@ try {
     if ($id !== null) {
         // Revisamos que el curso exista antes de intentar editarlo.
         if (getCourse($conn, (int) $id) === false) {
-            header('Location: /courses.php?error=course_not_found');
+            header('Location: /workshop3/courses.php?error=course_not_found');
             exit;
         }
         saveCourse($conn, $course, (int) $id);
@@ -59,14 +59,14 @@ try {
     }
 } catch (PDOException $exception) {
     if ($exception->getCode() === '23000') {
-        header('Location: /courses.php?error=course_code_taken');
+        header('Location: /workshop3/courses.php?error=course_code_taken');
         exit;
     }
 
     error_log('Error al guardar el curso: ' . $exception->getMessage());
-    header('Location: /courses.php?error=server_error');
+    header('Location: /workshop3/courses.php?error=server_error');
     exit;
 }
 
-header('Location: /courses.php?success=course_saved');
+header('Location: /workshop3/courses.php?success=course_saved');
 exit;

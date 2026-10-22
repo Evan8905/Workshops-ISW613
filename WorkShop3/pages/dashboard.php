@@ -18,8 +18,8 @@ requireLogin();
           </div>
           <div class="card-body">
             <p class="text-center">You are logged in as <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>.</p>
-            <a href="/pages/profile.php" class="btn btn-secondary btn-block mb-2">My profile</a>
-            <form action="/actions/logout.php" method="POST">
+            <a href="/workshop3/pages/profile.php" class="btn btn-secondary btn-block mb-2">My profile</a>
+            <form action="/workshop3/actions/logout.php" method="POST">
               <button type="submit" class="btn btn-danger btn-block">Logout</button>
             </form>
           </div>

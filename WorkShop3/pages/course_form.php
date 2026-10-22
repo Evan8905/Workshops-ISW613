@@ -18,13 +18,13 @@ $isEditing = isset($_GET['id']);
 if ($isEditing) {
     $id = $_GET['id'];
     if (!is_string($id) || !ctype_digit($id) || (int) $id < 1) {
-        header('Location: /courses.php?error=course_not_found');
+        header('Location: /workshop3/courses.php?error=course_not_found');
         exit;
     }
 
     $course = getCourse($conn, (int) $id);
     if ($course === false) {
-        header('Location: /courses.php?error=course_not_found');
+        header('Location: /workshop3/courses.php?error=course_not_found');
         exit;
     }
 }
@@ -37,7 +37,7 @@ if ($isEditing) {
         <div class="card-body p-4">
           <h1 class="h3 mb-4"><?php echo $isEditing ? 'Editar curso' : 'Crear curso'; ?></h1>
           <?php renderAlert(); ?>
-          <form action="/actions/save_course.php" method="POST">
+          <form action="/workshop3/actions/save_course.php" method="POST">
             <?php if ($isEditing): ?>
               <input type="hidden" name="id" value="<?php echo (int) $course['id']; ?>">
             <?php endif; ?>
@@ -62,7 +62,7 @@ if ($isEditing) {
               <textarea class="form-control" id="description" name="description" rows="4" required><?php echo htmlspecialchars($course['description'], ENT_QUOTES, 'UTF-8'); ?></textarea>
             </div>
             <button type="submit" class="btn btn-primary"><?php echo $isEditing ? 'Guardar cambios' : 'Crear curso'; ?></button>
-            <a href="/courses.php" class="btn btn-secondary">Cancelar</a>
+            <a href="/workshop3/courses.php" class="btn btn-secondary">Cancelar</a>
           </form>
         </div>
       </div>

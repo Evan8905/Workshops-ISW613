@@ -15,7 +15,7 @@ $courses = getCourses($conn);
       <h1 class="h2 mb-1">Cursos</h1>
       <p class="text-muted mb-0">Cursos registrados en el sistema.</p>
     </div>
-    <a href="/pages/course_form.php" class="btn btn-primary">Crear curso</a>
+    <a href="/workshop3/pages/course_form.php" class="btn btn-primary">Crear curso</a>
   </div>
   <?php renderAlert(); ?>
   <div class="table-responsive">
@@ -42,8 +42,8 @@ $courses = getCourses($conn);
             <td><?php echo (int) $course['credits']; ?></td>
             <td><?php echo htmlspecialchars($course['description'], ENT_QUOTES, 'UTF-8'); ?></td>
             <td class="text-nowrap">
-              <a href="/pages/course_form.php?id=<?php echo (int) $course['id']; ?>" class="btn btn-sm btn-secondary">Editar</a>
-              <form action="/actions/delete_course.php" method="POST" class="d-inline">
+              <a href="/workshop3/pages/course_form.php?id=<?php echo (int) $course['id']; ?>" class="btn btn-sm btn-secondary">Editar</a>
+              <form action="/workshop3/actions/delete_course.php" method="POST" class="d-inline">
                 <input type="hidden" name="id" value="<?php echo (int) $course['id']; ?>">
                 <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
               </form>

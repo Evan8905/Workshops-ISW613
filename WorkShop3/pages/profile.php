@@ -36,7 +36,7 @@ $provinces = getProvinces($conn);
             </dl>
             <hr>
             <h5>Update your data</h5>
-            <form action="/actions/update_profile.php" method="POST" enctype="multipart/form-data">
+            <form action="/workshop3/actions/update_profile.php" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" maxlength="50" value="<?php echo htmlspecialchars($_SESSION['username'], ENT_QUOTES, 'UTF-8'); ?>" required>
@@ -70,7 +70,7 @@ $provinces = getProvinces($conn);
               </div>
               <button type="submit" class="btn btn-primary btn-block">Save changes</button>
             </form>
-            <a href="/pages/dashboard.php" class="btn btn-link btn-block">Back to dashboard</a>
+            <a href="/workshop3/pages/dashboard.php" class="btn btn-link btn-block">Back to dashboard</a>
           </div>
         </div>
       </div>

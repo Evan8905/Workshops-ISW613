@@ -1,7 +1,7 @@
 <?php
 
 const PROFILE_PICTURES_DIR = __DIR__ . '/../uploads/profile_pictures';
-const PROFILE_PICTURES_URL = '/uploads/profile_pictures';
+const PROFILE_PICTURES_URL = '/workshop3/uploads/profile_pictures';
 const PROFILE_PICTURE_MAX_BYTES = 2 * 1024 * 1024;
 
 // The extension is picked from the detected content type, never from the client's file name

@@ -24,7 +24,7 @@ if (
     || strlen(trim($username)) > 50
     || !ctype_digit((string) $provinceId)
 ) {
-    header('Location: /pages/profile.php?error=invalid_input');
+    header('Location: /workshop3/pages/profile.php?error=invalid_input');
     exit;
 }
 
@@ -36,19 +36,19 @@ $newPicture = null;
 $oldPicture = null;
 
 if ($changePassword && strlen($newPassword) < 8) {
-    header('Location: /pages/profile.php?error=password_too_short');
+    header('Location: /workshop3/pages/profile.php?error=password_too_short');
     exit;
 }
 
 if ($changePassword && $newPassword !== $confirmPassword) {
-    header('Location: /pages/profile.php?error=password_mismatch');
+    header('Location: /workshop3/pages/profile.php?error=password_mismatch');
     exit;
 }
 
 try {
     $province = findProvince($conn, (int) $provinceId);
     if ($province === false) {
-        header('Location: /pages/profile.php?error=invalid_province');
+        header('Location: /workshop3/pages/profile.php?error=invalid_province');
         exit;
     }
 
@@ -62,7 +62,7 @@ try {
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
         if ($user === false || !password_verify($currentPassword, $user['password_hash'])) {
-            header('Location: /pages/profile.php?error=wrong_password');
+            header('Location: /workshop3/pages/profile.php?error=wrong_password');
             exit;
         }
 
@@ -78,7 +78,7 @@ try {
 
         $upload = storeProfilePicture($picture);
         if (isset($upload['error'])) {
-            header('Location: /pages/profile.php?error=' . $upload['error']);
+            header('Location: /workshop3/pages/profile.php?error=' . $upload['error']);
             exit;
         }
 
@@ -97,12 +97,12 @@ try {
 
     // 23000 = integrity constraint violation (the username unique key)
     if ($exception->getCode() === '23000') {
-        header('Location: /pages/profile.php?error=username_taken');
+        header('Location: /workshop3/pages/profile.php?error=username_taken');
         exit;
     }
 
     error_log('Profile update database error: ' . $exception->getMessage());
-    header('Location: /pages/profile.php?error=server_error');
+    header('Location: /workshop3/pages/profile.php?error=server_error');
     exit;
 }
 
@@ -121,4 +121,4 @@ if (isset($_COOKIE[REMEMBER_COOKIE])) {
     rememberUsername($username);
 }
 
-header('Location: /pages/profile.php?success=updated');
+header('Location: /workshop3/pages/profile.php?success=updated');

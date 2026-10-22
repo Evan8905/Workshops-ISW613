@@ -15,13 +15,13 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 <body class="bg-light d-flex flex-column min-vh-100">
 <?php if (isset($_SESSION['user_id'])): ?>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="/pages/dashboard.php">Workshop 3</a>
+    <a class="navbar-brand" href="/workshop3/pages/dashboard.php">Workshop 3</a>
     <div class="navbar-nav mr-auto">
-      <a class="nav-item nav-link" href="/pages/dashboard.php">Inicio</a>
-      <a class="nav-item nav-link" href="/courses.php">Cursos</a>
-      <a class="nav-item nav-link" href="/pages/profile.php">Perfil</a>
+      <a class="nav-item nav-link" href="/workshop3/pages/dashboard.php">Inicio</a>
+      <a class="nav-item nav-link" href="/workshop3/courses.php">Cursos</a>
+      <a class="nav-item nav-link" href="/workshop3/pages/profile.php">Perfil</a>
     </div>
-    <form action="/actions/logout.php" method="POST" class="form-inline">
+    <form action="/workshop3/actions/logout.php" method="POST" class="form-inline">
       <button type="submit" class="btn btn-outline-light btn-sm">Cerrar sesión</button>
     </form>
   </nav>

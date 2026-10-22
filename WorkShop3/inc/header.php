@@ -13,19 +13,19 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" id="navId">
     <li class="nav-item">
-      <a href="/pages/dashboard.php" class="nav-link">Dashboard</a>
+      <a href="/workshop3/pages/dashboard.php" class="nav-link">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a href="/pages/profile.php" class="nav-link">Profile</a>
+      <a href="/workshop3/pages/profile.php" class="nav-link">Profile</a>
     </li>
     <li class="nav-item">
-      <a href="/courses.php" class="nav-link">Cursos</a>
+      <a href="/workshop3/courses.php" class="nav-link">Cursos</a>
     </li>
     <li class="nav-item">
-      <a href="/users.php" class="nav-link active">Users</a>
+      <a href="/workshop3/users.php" class="nav-link active">Users</a>
     </li>
     <li class="nav-item">
-      <form action="/actions/logout.php" method="POST" class="m-0">
+      <form action="/workshop3/actions/logout.php" method="POST" class="m-0">
         <button type="submit" class="nav-link btn btn-link">Logout</button>
       </form>
     </li>

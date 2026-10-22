@@ -46,13 +46,13 @@ function requireLogin()
     startSession();
 
     if (!isset($_SESSION['user_id'])) {
-        header('Location: /index.php?error=login_required');
+        header('Location: /workshop3/index.php?error=login_required');
         exit;
     }
 
     if (time() - ($_SESSION['last_activity'] ?? 0) > SESSION_TIMEOUT_SECONDS) {
         logoutUser();
-        header('Location: /index.php?error=session_expired');
+        header('Location: /workshop3/index.php?error=session_expired');
         exit;
     }
 

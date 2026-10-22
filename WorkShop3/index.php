@@ -34,7 +34,7 @@ $rememberedUsername = $_COOKIE['remembered_username'] ?? '';
               </div>
               <button type="submit" class="btn btn-primary btn-block">Login</button>
             </form>
-            <p class="text-center mt-3 mb-0">Don't have an account? <a href="/pages/register.php">Sign up</a></p>
+            <p class="text-center mt-3 mb-0">Don't have an account? <a href="/workshop3/pages/register.php">Sign up</a></p>
           </div>
         </div>
       </div>

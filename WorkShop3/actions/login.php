@@ -14,7 +14,7 @@ if (
     || $password === ''
 ) {
     //redirect to login page with error message
-    header('Location: /index.php?error=invalid_input');
+    header('Location: /workshop3/index.php?error=invalid_input');
     exit;
 }
 
@@ -38,7 +38,7 @@ try {
 // check if the user exists and verify the password
 if ($user === false || !password_verify($password, $user['password_hash'])) {
     // Invalid credentials redirect to login page with error message
-    header('Location: /index.php?error=invalid_credentials');
+    header('Location: /workshop3/index.php?error=invalid_credentials');
     exit;
 }
 
@@ -52,4 +52,4 @@ if (isset($_POST['remember_me'])) {
     forgetUsername();
 }
 
-header('Location: /pages/dashboard.php');
+header('Location: /workshop3/pages/dashboard.php');

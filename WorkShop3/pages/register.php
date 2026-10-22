@@ -15,7 +15,7 @@ $provinces = getProvinces($conn);
           </div>
           <div class="card-body">
             <?php renderAlert(); ?>
-            <form action="/actions/register.php" method="POST">
+            <form action="/workshop3/actions/register.php" method="POST">
               <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" name="username" maxlength="50" required>
@@ -39,7 +39,7 @@ $provinces = getProvinces($conn);
               </div>
               <button type="submit" class="btn btn-primary btn-block">Create account</button>
             </form>
-            <p class="text-center mt-3 mb-0">Already have an account? <a href="/index.php">Log in</a></p>
+            <p class="text-center mt-3 mb-0">Already have an account? <a href="/workshop3/index.php">Log in</a></p>
           </div>
         </div>
       </div>
