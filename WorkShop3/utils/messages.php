@@ -14,12 +14,16 @@ const MESSAGES = [
         'invalid_picture' => 'The profile picture must be a JPG, PNG, GIF or WEBP image.',
         'picture_too_large' => 'The profile picture must be 2 MB or smaller.',
         'upload_failed' => 'The profile picture could not be uploaded. Please try again.',
+        'course_not_found' => 'No se encontró el curso solicitado.',
+        'course_code_taken' => 'Ese código de curso ya está registrado.',
         'server_error' => 'Something went wrong. Please try again later.',
     ],
     'success' => [
         'registered' => 'Your account was created. You can now log in.',
         'logged_out' => 'You have been logged out.',
         'updated' => 'Your profile was updated.',
+        'course_saved' => 'El curso se guardó correctamente.',
+        'course_deleted' => 'El curso se eliminó correctamente.',
     ],
 ];
 
