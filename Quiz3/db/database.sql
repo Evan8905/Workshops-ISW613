@@ -1,0 +1,26 @@
+﻿CREATE DATABASE IF NOT EXISTS matricula_quiz3
+    CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE matricula_quiz3;
+
+CREATE TABLE IF NOT EXISTS carreras (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS cursos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    codigo VARCHAR(20) NOT NULL UNIQUE,
+    creditos INT UNSIGNED NOT NULL,
+    carrera_id INT NOT NULL,
+    FOREIGN KEY (carrera_id) REFERENCES carreras(id)
+);
+
+CREATE TABLE IF NOT EXISTS matriculas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    carne VARCHAR(30) NOT NULL,
+    curso_id INT NOT NULL,
+    fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
