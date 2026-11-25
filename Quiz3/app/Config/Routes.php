@@ -3,7 +3,9 @@
 use CodeIgniter\Router\RouteCollection;
 
 /** @var RouteCollection $routes */
-$routes->get('/', 'Cursos::index', ['filter' => 'csrf']);
+$routes->get('/', 'Matriculas::index', ['filter' => 'csrf']);
+$routes->post('matriculas', 'Matriculas::guardar', ['filter' => 'csrf']);
+$routes->get('matriculas/(:num)', 'Matriculas::comprobante/$1');
 
 $routes->group('cursos', ['filter' => 'csrf'], static function (RouteCollection $routes): void {
     $routes->get('/', 'Cursos::index');

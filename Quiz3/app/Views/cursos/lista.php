@@ -1,4 +1,4 @@
-<?= $this->extend('cursos/base') ?>
+<?= $this->extend('base') ?>
 <?= $this->section('contenido') ?>
 <h1>Cursos</h1>
 <p><a href="<?= esc(site_url('cursos/nuevo'), 'attr') ?>">Crear curso</a></p>

@@ -1,4 +1,4 @@
-<?= $this->extend('cursos/base') ?>
+<?= $this->extend('base') ?>
 <?= $this->section('contenido') ?>
 <?php
 $editando = isset($curso['id']);
